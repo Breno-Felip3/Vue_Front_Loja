@@ -1,5 +1,10 @@
 <template>
     <h1>Categorias</h1>
+
+    <div v-if="loading">
+        Carregando os dados
+    </div>
+
     <ul>
         <li v-for="category in categories" :key="category.id">
             {{ category.id }}
@@ -11,7 +16,7 @@
   
 <script>
 
-import CategoriesService from '@/service/categories.servece';
+import CategoryService from '@/service/CategoryService';
 import { onMounted, ref } from 'vue';
 
 export default {
@@ -20,17 +25,25 @@ export default {
     setup(){
         const categories = ref([])
 
-        onMounted( ()=>{
-            CategoriesService.getAllCategory()
-            .then(response => {
-                categories.value = response.data
-            })
-            .catch(error => {
-                console.log(error)
-            }) 
+        const loading = ref(false)
+
+        onMounted( async ()=>{
+             loading.value = true;
+            CategoryService.getAllCategory()
+                .then(response => {
+                    categories.value = response.data
+                })
+                .catch(error => {
+                    console.log(error)
+                }) 
+                .finally(()=>{
+                    
+                    loading.value = false
+                })
         })
 
         return{
+            loading,
             categories
         }
     }

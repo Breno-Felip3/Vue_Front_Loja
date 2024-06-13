@@ -1,5 +1,5 @@
 import axios from "axios";
-export default class CategoriesService{
+export default class CategoryService{
     
     static async getAllCategory()
     {
@@ -7,3 +7,9 @@ export default class CategoriesService{
     }
 
 }
+
+
+
+
+
+
