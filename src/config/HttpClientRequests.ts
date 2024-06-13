@@ -14,7 +14,6 @@ class HttpClientRequests implements HttpCliente{
             headers:{
                 'Content-Type': 'application/json'
             }
-
         });
     }
 
