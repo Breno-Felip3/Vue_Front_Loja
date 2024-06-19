@@ -1,5 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 import HttpCliente from "@/config/http/HttpCliente";
+import { API_URL, NAME_TOKEN } from "@/utils/constantes";
 
 class HttpClientRequests implements HttpCliente{
 
@@ -7,7 +8,7 @@ class HttpClientRequests implements HttpCliente{
     private static instance: HttpClientRequests | null = null
 
     constructor() {
-        const baseURL = 'http://localhost/api'
+        const baseURL = API_URL
 
         this.axiosInstance = axios.create({
             baseURL,
@@ -24,6 +25,16 @@ class HttpClientRequests implements HttpCliente{
         }
 
         return this.instance
+    }
+
+    withAuthorization(): this {
+        if(this.axiosInstance){
+            const token = localStorage.getItem(NAME_TOKEN)
+            this.axiosInstance.defaults.headers.common[
+                "Authorization"
+            ] = `Bearer ${token}`;
+        }
+        return this
     }
 
     async get(url: string, configs?: object): Promise<any> {

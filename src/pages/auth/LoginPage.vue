@@ -30,7 +30,7 @@
 
 <script lang="ts">
 import { reactive, ref } from 'vue';
-import { UsersStore } from '@/store/users';
+import { UsersStore } from '@/store/users'
 
 export default {
 
