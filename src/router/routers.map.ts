@@ -1,7 +1,7 @@
-import HomeAdmin from '@/pages/admin/home/HomeAdmin.vue'
-import AuthTemplate from '@/layouts/AuthTemplate.vue'
-import LoginPage from "@/pages/auth/LoginPage.vue";
-import ForgotPassword from "@/pages/auth/ForgotPassword.vue";
+import HomeAdmin from '@/pages/admin/home/HomeAdmin.vue';
+import AuthTemplate from '@/layouts/AuthTemplate.vue';
+import LoginPage from '@/pages/Auth/LoginPage.vue';
+import ForgotPassword from '@/pages/Auth/ForgotPassword.vue';
 import DefaultTemplate from "@/layouts/DefaultTemplate.vue";
 
 export const routes = [

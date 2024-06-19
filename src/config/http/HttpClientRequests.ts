@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import HttpCliente from "./HttpCliente";
+import HttpCliente from "@/config/http/HttpCliente";
 
 class HttpClientRequests implements HttpCliente{
 
